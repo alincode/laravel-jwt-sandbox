@@ -27,8 +27,6 @@ class AuthenticateController extends Controller
         $user = User::where('email', $request->email)->first();
         $token = JWTAuth::fromUser($user);
 
-        // return dd($token);
-
         // all good so return the token
         return response()->json([
             'token' => $token

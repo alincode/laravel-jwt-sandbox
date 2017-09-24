@@ -1,7 +1,5 @@
 # Laravel with JWT
 
-* [Installation · tymondesigns/jwt-auth Wiki · GitHub](https://github.com/tymondesigns/jwt-auth/wiki/Installation)
-
 ### 安裝
 
 ```
@@ -56,8 +54,6 @@ public function authenticate(Request $request)
     $user = User::where('email', $request->email)->first();
     $token = JWTAuth::fromUser($user);
 
-    // return dd($token);
-
     // all good so return the token
     return response()->json([
         'token' => $token
@@ -81,3 +77,6 @@ Route::middleware('jwt.auth')->post('/jwt/check', function (Request $request) {
 Authorization: Bearer TOKEN_STRING
 ```
 
+### 參考資料
+
+* [Installation · tymondesigns/jwt-auth Wiki · GitHub](https://github.com/tymondesigns/jwt-auth/wiki/Installation)
