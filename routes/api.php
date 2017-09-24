@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/login', 'AuthenticateController@authenticate');
+
+Route::middleware('jwt.auth')->post('/jwt/check', function (Request $request) {
+    return 'token is correct';
+});
